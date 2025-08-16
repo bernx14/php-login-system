@@ -1,0 +1,17 @@
+-- Create a database named 'user_auth' (if you don't have one already)
+CREATE DATABASE IF NOT EXISTS user_auth;
+
+-- Use the created database
+USE user_auth;
+
+-- Create the 'users' table
+-- This table will store the essential information for each user.
+-- The password column is long enough to store the hashed password.
+CREATE TABLE `users` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `username` VARCHAR(50) NOT NULL UNIQUE,
+  `email` VARCHAR(100) NOT NULL UNIQUE,
+  `password` VARCHAR(255) NOT NULL,
+  `framework_preference` ENUM('FuelPHP', 'CakePHP') NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
